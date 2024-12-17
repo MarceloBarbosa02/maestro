@@ -1,0 +1,8 @@
+appId: ${APP_ID}
+tags:
+  - util
+---
+- assertVisible: 'Que legal ter você aqui!'
+- assertVisible: "Entrar"
+- tapOn: "Entrar"
+- assertVisible: 'Identifique-se'

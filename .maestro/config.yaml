@@ -1,0 +1,14 @@
+flows:
+  - auth/*
+  - buyer/*
+  - seller/*
+
+excludeTags:
+  - util
+
+executionOrder:
+    continueOnFailure: false # default is true
+    flowsOrder:
+        - onboarding
+        - sign-in
+        - sign-up

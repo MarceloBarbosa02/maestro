@@ -1,0 +1,15 @@
+appId: ${APP_ID}
+---
+- clearState
+- launchApp
+- assertVisible: "Que legal ter você aqui!"
+- assertVisible: "Simples, confiável, lucrativa, para pessoas ambiciosas."
+- tapOn: 
+    id: "button-2"
+- assertVisible: "Sua primeira venda no digital mais rápida do que você imagina."
+- tapOn: 
+    id: "button-3"
+- assertVisible: "Criou algo fantástico? Te ajudamos a vender."
+- tapOn: 
+    id: "button-1"
+- assertVisible: "Simples, confiável, lucrativa, para pessoas ambiciosas."

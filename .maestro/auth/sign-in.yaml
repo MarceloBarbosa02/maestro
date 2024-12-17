@@ -1,0 +1,90 @@
+appId: ${APP_ID}
+env:
+  EMAIL: 'd.santoslopes@gmail.com'
+  PASSWORD: 'Status1501@'
+---
+- launchApp
+
+- assertVisible: 'Que legal ter você aqui!'
+- assertVisible: "Entrar"
+- tapOn: 
+    id: "sign-in-button"
+
+- assertVisible:
+    text: "Identifique-se" # Assumindo que este é o título da tela
+
+# Teste de campos vazios
+- tapOn: 
+    id: "login-button"
+- assertVisible:
+    text: "Este e-mail não é valido." # Ajuste conforme suas mensagens de validação
+- assertVisible:
+    text: "Sua senha deve ter pelo menos 8 caracteres." # Ajuste conforme suas mensagens de validação
+
+# Teste de email inválido
+- tapOn: 
+    id: "email-input"
+- inputText: "invalid-email"
+- tapOn: 
+    id: "password-input"
+- inputText: "123456"
+- tapOn: 
+    id: "login-button"
+- assertVisible:
+    text: "Este e-mail não é valido."
+
+# Teste de navegação para recuperação de senha
+- tapOn:
+    text: "Esqueci minha senha"
+- assertVisible:
+    text: "Recuperar senha" # Título da tela de recuperação
+
+# Voltar para login
+- tapOn: 
+    id: "back-button"
+
+# Teste de navegação para cadastro
+- assertVisible:
+    text: "Identifique-se"
+    
+# Voltar para login
+- tapOn: 
+    id: "sign-up-button"
+
+- assertVisible:
+    text: "Criar conta"
+
+- tapOn: 
+    id: "back-button"
+
+- assertVisible: 'Que legal ter você aqui!'
+- assertVisible: "Entrar"
+- tapOn: 
+    id: "sign-in-button"
+
+- assertVisible:
+    text: "Identifique-se"
+
+- assertVisible: 'E-mail'
+- assertVisible: 'Sua Senha'
+- tapOn:
+    id: 'email-input'
+- inputText: ${EMAIL}
+- tapOn:
+    id: 'password-input'
+- inputText: ${PASSWORD}
+- tapOn:
+    id: 'login-button'
+- assertVisible: 'Vendas hoje'
+
+- tapOn: 
+    id: "account-button"
+- assertVisible: 'Perfil de negócio'
+- tapOn: 
+    id: "more-button"
+    
+- assertVisible: 'Desconectar'
+- tapOn: 
+    id: "logout-button"
+- assertVisible: 'Identifique-se'
+

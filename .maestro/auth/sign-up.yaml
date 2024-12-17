@@ -1,0 +1,47 @@
+appId: "br.com.app.kirvano"
+# appId: ${APP_ID}
+env:
+  NAME: 'Marcelo Barbosa'
+  EMAIL: 'mpb9654@gmail.com'
+  PHONE: '11999999999'
+  PASSWORD: 'Status1501@'
+  PASSWORD_CONFIRM: 'Status1501@'
+---
+- clearState
+- launchApp
+
+- assertVisible: 'Que legal ter você aqui!'
+- tapOn: 'Criar conta'
+- assertVisible: 'Criar conta'
+- assertVisible: 'Primeiro e último nome'
+- tapOn:
+    id: 'name-input'
+- inputText: ${NAME}
+- hideKeyboard
+
+- assertVisible: 'E-mail'
+- tapOn:
+    id: 'email-input'
+- inputText: ${EMAIL}
+- hideKeyboard
+
+- tapOn:
+    id: 'phone-input'
+- inputText: ${PHONE}
+- hideKeyboard
+
+- assertVisible: 'Crie uma senha'
+- tapOn:
+    id: 'password-input'
+- inputText: ${PASSWORD}
+- hideKeyboard
+
+- assertVisible: 'Repita a nova senha'
+- tapOn:
+    id: 'password-confirm-input'
+- inputText: ${PASSWORD_CONFIRM}
+- hideKeyboard
+
+- tapOn:
+    id: 'create-account-button'
+- assertVisible: 'E-mail informado já cadastrado'
